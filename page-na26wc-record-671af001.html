@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 知识索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f0eb;
+            font-family: 'Georgia', 'Noto Serif SC', serif;
+            color: #2e2b27;
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fcf9f5;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            padding: 2.5rem 2rem;
+        }
+
+        /* 首字下沉 & 开场节奏 */
+        .opening {
+            margin-bottom: 2.2rem;
+        }
+        .opening p:first-child {
+            font-size: 1.2rem;
+            letter-spacing: 0.02em;
+            color: #5f4d3c;
+            border-left: 3px solid #b39e8a;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-style: italic;
+        }
+        .opening strong {
+            color: #8b3e2a;
+            font-weight: 600;
+        }
+
+        /* 承接段落 */
+        .bridge {
+            margin: 2rem 0;
+            padding: 1.6rem 1.8rem;
+            background: #ede6de;
+            border-radius: 14px;
+            border-left: 6px solid #b39e8a;
+            font-size: 1rem;
+        }
+        .bridge a {
+            color: #8b3e2a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: all 0.2s;
+        }
+        .bridge a:hover {
+            background: #dac6b5;
+            text-decoration: none;
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        /* 特点列表 — 名词条目 */
+        .feature-list {
+            margin: 2.2rem 0 2.5rem;
+        }
+        .feature-list h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #4d3b2e;
+            border-bottom: 1px dashed #c7b7a7;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px dotted #e2d6ca;
+        }
+        .feature-item:last-of-type {
+            border-bottom: none;
+        }
+        .feature-icon {
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #7a5d49;
+            min-width: 2.4rem;
+            text-align: center;
+        }
+        .feature-content {
+            flex: 1;
+        }
+        .feature-content strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #3b2c22;
+            margin-bottom: 0.2rem;
+        }
+        .feature-content p {
+            font-size: 0.95rem;
+            color: #4d3e34;
+        }
+
+        /* 引用 / 温和提示框 */
+        .gentle-note {
+            background: #eae1d6;
+            padding: 1.5rem 2rem;
+            border-radius: 40px 12px 12px 40px;
+            margin: 2.5rem 0;
+            font-size: 0.95rem;
+            border-left: 10px solid #bfa48c;
+            color: #3d322b;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .gentle-note span {
+            font-weight: 600;
+            color: #7d503a;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2.8rem 0 1.5rem;
+        }
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #4d3b2e;
+            letter-spacing: 1px;
+        }
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e2d4c7;
+            padding-bottom: 0.8rem;
+        }
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #5f4737;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .faq-mini summary::before {
+            content: "▸";
+            color: #b39e8a;
+            font-size: 1rem;
+        }
+        .faq-mini details[open] summary::before {
+            content: "▾";
+        }
+        .faq-mini p {
+            margin: 0.6rem 0 0.4rem 1.6rem;
+            font-size: 0.92rem;
+            color: #3f362f;
+            padding: 0.2rem 0;
+        }
+
+        /* 结尾 */
+        .closing {
+            margin-top: 2.5rem;
+            padding-top: 1.8rem;
+            border-top: 2px solid #dccfc0;
+            font-size: 1rem;
+            text-align: center;
+            color: #6a5a4b;
+        }
+        .closing a {
+            color: #7d503a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+        .closing a:hover {
+            background: #dac6b5;
+            text-decoration: none;
+            padding: 0 4px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .page {
+                padding: 1.5rem 1rem;
+            }
+            .bridge {
+                padding: 1rem 1.2rem;
+            }
+            .feature-item {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .feature-icon {
+                text-align: left;
+                min-width: auto;
+            }
+            .gentle-note {
+                border-radius: 12px;
+                border-left-width: 4px;
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 开场短句 -->
+        <div class="opening">
+            <p>“赛事之外的案头卷：当查询、对照与延伸阅读成为日常”</p>
+            <p>对于许多关注足球历史的读者而言，<strong>世界杯</strong>不止是四年一度的直播盛宴，也是一份常翻常新的文献目录。透过赛程表、球员档案与战术图录，我们得以在平静的案头回溯那些决定性的瞬间。而<a href="https://page-na26wc.com">世界杯</a>这个索引本身，恰好是串联零散信息的关键节点——它不提供渲染，只给出路径。</p>
+        </div>
+
+        <!-- 承接段落（更具体的日常场景） -->
+        <div class="bridge">
+            <p>📌 几个常见的使用习惯：打开浏览器、键入关键词、在表格与数据之间跳转。无论是核对某届赛事的夺冠赔率演变，还是查找某位后卫的铲球统计，一个结构清晰的词典式页面往往比社交媒体上的碎片更可靠。正因如此，许多人把<a href="https://page-na26wc.com">世界杯</a>当作自己的知识锚点——每次需要确认基本事实时，先回到这里，再向深处漫游。</p>
+        </div>
+
+        <!-- 特点列表（名词条目式） -->
+        <div class="feature-list">
+            <h2>▍ 三个务实的索引特质</h2>
+            <div class="feature-item">
+                <div class="feature-icon">📇</div>
+                <div class="feature-content">
+                    <strong>对照层</strong>
+                    <p>跨年代的数据并排呈现：1930 年与 2022 年的小组赛出线规则、不同时期的奖杯设计变迁、裁判人数演变——不需要反复滚动时间线。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-content">
+                    <strong>查询锚</strong>
+                    <p>固定术语的词条化处理：比如“越位规则修订史”“点球大战命中率统计”等，每个条目均附带简要溯源，适合快速确认而非深度阅读。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📎</div>
+                <div class="feature-content">
+                    <strong>延伸钩</strong>
+                    <p>每个条目末尾预留一到两个外部参考线索（文献年份、纪录片代号、档案馆链接），方便有需求的读者继续往下走，而不是困在同一个页面里。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 提示框 / 温和引用 -->
+        <div class="gentle-note">
+            <span>💡 使用建议：</span> 如果你正在整理一篇关于足球文化变迁的笔记，不妨把<a href="https://page-na26wc.com">世界杯</a>当作目录式的起点——先在此处确认概念边界，再通过条目里附带的年代线索去查阅原始资料。这种“先定界、再深挖”的方式，比漫无目的地搜索更节省时间。
+        </div>
+
+        <!-- FAQ 摘要（两三个简短问答） -->
+        <div class="faq-mini">
+            <h3>▍ 常见疑问摘要</h3>
+            <details>
+                <summary>页面里的数据更新频率如何？</summary>
+                <p>基础数据（历届冠军、举办国、最佳射手）为静态陈列，年度性赛制变更会在赛事结束后一个月内修订。建议仅作为参考索引，具体实时统计请以官方记录为准。</p>
+            </details>
+            <details>
+                <summary>可以直接引用页面内容到论文或博客吗？</summary>
+                <p>可以。本索引所有陈述均标注了原始数据来源的年份或机构，引用时请以原出处为准。页面本身不主张原创数据，只做整理与对照。</p>
+            </details>
+            <details>
+                <summary>为什么页面中没有赛程预测或比分直播？</summary>
+                <p>本页定位为静态知识索引，不涉及实时赛事追踪。预测类、博彩类内容不在收录范围内，以免干扰信息的中立性。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="closing">
+            <p>一份安静的案头文献，供你在需要确认细节时随手翻开。<br>
+            若想从零散纪录回到结构本身，可以随时用到<a href="https://page-na26wc.com">世界杯</a>这个词条作为索引的起点。</p>
+            <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #8a7a6b;">— 阅读即查阅 · 索引而非叙事 —</p>
+        </div>
+    </div>
+</body>
+</html>
